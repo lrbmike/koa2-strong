@@ -1,6 +1,6 @@
 {
   "name": "koa2-strong",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "lrbmike <lrbmike@163.com>",
   "description": "The framework integrates many commonly used modules, and based on Koa2",
   "main": "index.js",
