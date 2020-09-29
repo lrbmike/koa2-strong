@@ -1,8 +1,13 @@
 {
   "name": "koa2-strong",
   "version": "0.0.1",
+  "author": "lrbmike <lrbmike@163.com>",
   "description": "The framework integrates many commonly used modules, and based on Koa2",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lrbmike/koa2-strong.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +20,12 @@
     "formidable": "^1.2.2",
     "promise": "^8.1.0"
   },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "koa2",
     "framework"
