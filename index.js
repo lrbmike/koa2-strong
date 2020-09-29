@@ -1,4 +1,6 @@
 
 exports.Application = require('./lib/application');
 
-exports.ORM = require('./lib/orm').connect
+exports.ORM = require('./lib/orm').connect;
+
+exports.Logger = require('./lib/logger');
