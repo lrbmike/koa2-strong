@@ -1,0 +1,24 @@
+{
+  "name": "koa2-strong",
+  "version": "0.0.1",
+  "description": "The framework integrates many commonly used modules, and based on Koa2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^9.4.0",
+    "koa-orm": "^3.1.0",
+    "mysql2": "^2.2.5",
+    "formidable": "^1.2.2",
+    "promise": "^8.1.0"
+  },
+  "keywords": [
+    "koa2",
+    "framework"
+  ],
+  "author": "lrbmike",
+  "license": "MIT"
+}
