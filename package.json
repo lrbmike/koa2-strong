@@ -1,6 +1,6 @@
 {
   "name": "koa2-strong",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "lrbmike",
   "description": "The framework integrates many commonly used modules, and based on Koa2",
   "main": "index.js",
@@ -21,6 +21,7 @@
     "koa-ejs": "^4.3.0",
     "mysql2": "^2.2.5",
     "formidable": "^1.2.2",
+    "log4js": "^6.3.0",
     "promise": "^8.1.0"
   },
   "engines": {
