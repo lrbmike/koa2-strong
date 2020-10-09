@@ -1,7 +1,10 @@
 {
   "name": "koa2-strong",
   "version": "0.0.4",
-  "author": "lrbmike",
+  "author": {
+    "name": "lrbmike",
+    "email": "lrbmike@163.com"
+  },
   "description": "The framework integrates many commonly used modules, and based on Koa2",
   "main": "index.js",
   "repository": {
@@ -32,7 +35,12 @@
   ],
   "keywords": [
     "koa2",
-    "framework"
+    "bodyparser",
+    "router",
+    "orm",
+    "ejs",
+    "formidable",
+    "sequelize"
   ],
   "license": "MIT"
 }
