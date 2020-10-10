@@ -1,3 +1,5 @@
+const Setting = require('./lib/setting');
+new Setting();
 
 exports.Application = require('./lib/application');
 
