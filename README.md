@@ -1,12 +1,11 @@
 # koa2-strong
-The framework integrates many commonly used modules, and based on Koa2  
-Includes koa-orm、koa-router、koa-bodyparser、koa-session2、koa-static、koa-ejs and integrate into a more mvc-like model.
+The framework integrates many commonly used modules, and based on Koa2. Includes koa-orm(sequelize)、koa-router、koa-bodyparser、koa-session2、koa-static、koa-ejs and integrate into a more MVC-like model.
 
 ## Installation
 npm install koa2-strong
 
-## Usage Specification
-to use this module, your project need to meet the specification
+## Recommendation
+Here are some specification recommendations.
 
 * **directory structure**
 
@@ -27,32 +26,13 @@ to use this module, your project need to meet the specification
 
 * **config files**
 
-includes 'db.json'、'routes.js' config file in the 'config' directory  
+the 'config' directory holds the project configuration files, such as database configuration file、router configuration file...
 
-'db.json' like this:
-```json
-{
-  "db": "db_name",
-  "username": "user_name",
-  "password": "pass_word",
-  "dialect": "mysql",
-  "host": "127.0.0.1",
-  "port": "3306",
-  "pool": {
-    "max": 5,
-    "min": 0,
-    "acquire": 30000,
-    "idle": 10000
-  }
-}
-```
-
-'routes.js' like this:
+for example, router configuration file 'routes.js' like this:
 ```js
 module.exports = {
     'get /': 'index#index',
 
-    'get /user/get': 'index#userGet',
     'get /user/get/:id': 'index#userGetId'
 }
 ```
@@ -60,17 +40,65 @@ module.exports = {
 
 ## Usage
 
-app.js like this:
+this module has a default setting(you must conform to the specifications), now you can use the setting file to configure different modules, just add a 'setting.json' file in the config directory
+
+'setting.json' like this
+```json
+{
+  "session": {
+    "key": "koa2-strong"
+  },
+  "static": {
+    "root": "/public"
+  },
+  "render": {
+    "root": "/public/views",
+    "layout": false,
+    "viewExt": "html",
+    "cache": false,
+    "debug": false
+  },
+  "form": {
+    "uploadDir": "uploads/"
+  },
+  "bodyparser": {
+    "formLimit": "2mb"
+  },
+  "router": {
+    "routesFilePath": "/config/routes.js",
+    "controllerFilePath": "/app/controllers/{controller}.js",
+    "controllerPattern": "{controller}"
+  },
+  "db": {
+    "settingPath": "/config/db.json",
+    "modelPath": "/app/schema"
+  },
+  "logger": {
+    "appenders": {
+      "out": { "type": "stdout"},
+      "app": { "type": "dateFile", "filename": "logs/app.log", "pattern": ".yyyy-MM-dd", "compress": true}
+    },
+    "categories": {
+      "default": { "appenders": [ "out", "app" ], "level": "debug" }
+    }
+  }
+}
+```
+if you want to modify an attribute, you can see the corresponding module
+
+#### Start
+project startup file 'app.js' like this:
 ```js
 // use Application module, and include some modules with the default setting
-const app = require('koa2-strong').Application;
+const Application = require('koa2-strong').Application;
+const app = new Application()
 // the default port is 9012.
 app.start();
 ```
 
 if you need orm module, you can require the 'ORM' module and create the base model file  
 
-the BaseModel.js like this:
+the 'BaseModel.js' like this:
 ```js
 // use 'sequelize' module, other model can extend this base model to get the db object(this.orm)
 
